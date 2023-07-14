@@ -29,9 +29,30 @@ function toggleGridLines(showGridLines) {
     }
 }
 
+function turnOnButton(button) {
+    if (!button.classList.contains("button-active")) {
+        button.classList.add("button-active");
+    }
+}
+
+function turnOffButton(button) {
+    button.classList.remove("button-active");
+}
+
 // Display the squares at the beginning
 createSquares(16);
 toggleGridLines(true);
+
+// Check which mode user selects (there are 3 modes: pen, rainbow-pen, and eraser)
+let mode = "pen";
+const modeButtons = document.querySelectorAll("#pen, #rainbow-pen, #eraser");
+modeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        // Toggle the buttons' colors
+        modeButtons.forEach(turnOffButton);
+        turnOnButton(button);
+    });
+});
 
 // Toggle the grid lines when user clicks the switch
 const toggleSwitch = document.querySelector("#toggle-switch");
