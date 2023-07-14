@@ -118,25 +118,6 @@ hr {
     align-items: center;
 }
 
-.middle {
-    flex-basis: 50%;
-    flex-shrink: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#grid {
-    background-color: white;
-    width: 600px;
-    aspect-ratio: 1/1;
-}
-
-.right {
-    flex-basis: 25%;
-    flex-shrink: 1;
-}
-
 /* THE TOGGLE SWITCH */
 .switch-wrapper {
     height: 50px;
@@ -261,3 +242,25 @@ hr {
 }
 
 /* END OF SLIDER */
+
+.middle {
+    flex-basis: 50%;
+    flex-shrink: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#grid {
+    background-color: white;
+    width: 600px;
+    aspect-ratio: 1/1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.right {
+    flex-basis: 25%;
+    flex-shrink: 1;
+}
