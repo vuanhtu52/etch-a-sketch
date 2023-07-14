@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>etch-a-sketch</title>
+    <link rel="stylesheet" href="stylesheet.css">
+</head>
+
+<body>
+    <!-- Title -->
+    <div class="title">Etch-a-sketch</div>
+
+    <!-- Main content section -->
+    <div class="content">
+        <!-- Menu bar on the left -->
+        <div class="left">
+            <!-- Upper half menu -->
+            <div class="menu1">
+                <div class="menu1-left">
+                    <button>Pen</button>
+                    <button>Rainbow Pen</button>
+                    <button>Eraser</button>
+                    <button>Clear</button>
+                </div>
+                <div class="menu1-right">
+                    <div class="color-picker">
+                        <input type="color" />
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <!-- Lower half menu -->
+            <div class="menu2">
+                <div class="menu2-left">
+                    <div class="label">Background Color</div>
+                    <div class="label">Show Grid Lines</div>
+                    <div class="grid-slider">
+                        <div class="slidecontainer">
+                            <input type="range" min="1" max="64" value="16" class="slider" id="myRange">
+                        </div>
+                        <div class="slider-display">16 x 16</div>
+                    </div>
+
+                </div>
+                <div class="menu2-right">
+                    <div class="color-picker">
+                        <input type="color" />
+                    </div>
+                    <div class="switch-wrapper">
+                        <label class="switch">
+                            <input type="checkbox">
+                            <span class="slider round"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The grid -->
+        <div class="middle">
+            <div id="grid"></div>
+        </div>
+        
+        <!-- Empty section on the right -->
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>
