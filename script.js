@@ -1,3 +1,4 @@
+const penColorSelector = document.querySelector("#pen-selector");
 
 function createSquares(gridSize) {
     const grid = document.querySelector("#grid");
@@ -39,6 +40,12 @@ function turnOffButton(button) {
     button.classList.remove("button-active");
 }
 
+function changeSquareColor(square) {
+    if (mode === "pen") {
+        square.style.backgroundColor = penColorSelector.value;
+    }
+}
+
 // Display the squares at the beginning
 createSquares(16);
 toggleGridLines(true);
@@ -51,6 +58,9 @@ modeButtons.forEach(button => {
         // Toggle the buttons' colors
         modeButtons.forEach(turnOffButton);
         turnOnButton(button);
+        // Set the mode based on button pressed
+        mode = button.id;
+        console.log(mode);
     });
 });
 
@@ -92,11 +102,11 @@ squares.forEach(square => {
     });
     square.addEventListener("mousedown", () => {
         drawing = true;
-        square.style.backgroundColor = "black";
+        changeSquareColor(square);
     });
     square.addEventListener("mousemove", () => {
         if (drawing) {
-            square.style.backgroundColor = "black";
+            changeSquareColor(square);
         }
     });
 });
