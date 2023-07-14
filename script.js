@@ -54,4 +54,11 @@ slider.addEventListener("change", event => {
 const sliderDisplay = document.querySelector(".slider-display");
 slider.addEventListener("input", event => {
     sliderDisplay.textContent = `${event.currentTarget.value} x ${event.currentTarget.value}`;
-})
+});
+
+// Change background color when user selects a new color
+const backgroundSelector = document.querySelector("#background-selector");
+console.log(backgroundSelector);
+backgroundSelector.addEventListener("input", event => {
+    grid.style.backgroundColor = event.currentTarget.value;
+});
