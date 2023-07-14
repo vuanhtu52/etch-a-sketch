@@ -71,6 +71,7 @@ squares.forEach(square => {
     });
     square.addEventListener("mousedown", () => {
         drawing = true;
+        square.style.backgroundColor = "black";
     });
     square.addEventListener("mousemove", () => {
         if (drawing) {
