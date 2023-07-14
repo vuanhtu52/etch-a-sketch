@@ -58,7 +58,23 @@ slider.addEventListener("input", event => {
 
 // Change background color when user selects a new color
 const backgroundSelector = document.querySelector("#background-selector");
-console.log(backgroundSelector);
 backgroundSelector.addEventListener("input", event => {
     grid.style.backgroundColor = event.currentTarget.value;
+});
+
+// Change a square's color when user clicks on it
+const squares = document.querySelectorAll(".square");
+let drawing = false;
+squares.forEach(square => {
+    square.addEventListener("mouseup", () => {
+        drawing = false;
+    });
+    square.addEventListener("mousedown", () => {
+        drawing = true;
+    });
+    square.addEventListener("mousemove", () => {
+        if (drawing) {
+            square.style.backgroundColor = "black";
+        }
+    });
 });
