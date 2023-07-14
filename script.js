@@ -1,8 +1,6 @@
-let showGridLines = true;
 
 function createSquares(gridSize) {
     const grid = document.querySelector("#grid");
-    console.log(grid.offsetWidth);
     for (let row = 0; row < gridSize; row++) {
         let rowDiv = document.createElement("div")
         rowDiv.style.display = "flex";
@@ -18,14 +16,24 @@ function createSquares(gridSize) {
     }
 }
 
-function toggleGridLines() {
+function toggleGridLines(showGridLines) {
     const squares = document.querySelectorAll(".square");
     if (showGridLines) {
         squares.forEach(square => {
             square.style.border  = "0.5px solid grey";
         })
+    } else {
+        squares.forEach(square => {
+            square.style.border  = "0";
+        })
     }
 }
 
 createSquares(16);
-toggleGridLines();
+toggleGridLines(true);
+
+// Toggle the grid lines when user click the switch
+const toggleSwitch = document.querySelector("#toggle-switch");
+toggleSwitch.addEventListener("change", event => {
+    toggleGridLines(event.currentTarget.checked);
+})
