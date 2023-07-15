@@ -12,6 +12,19 @@ function createSquares(gridSize) {
             let square = document.createElement("div");
             square.style.flex = "1";
             square.classList.add("square");
+            // Change the square's color when user clicks on it
+            square.addEventListener("mouseup", () => {
+                drawing = false;
+            });
+            square.addEventListener("mousedown", () => {
+                drawing = true;
+                changeSquareColor(square);
+            });
+            square.addEventListener("mousemove", () => {
+                if (drawing) {
+                    changeSquareColor(square);
+                }
+            });
             rowDiv.appendChild(square);
         }
         grid.appendChild(rowDiv);
@@ -90,22 +103,6 @@ slider.addEventListener("change", event => {
     }
     createSquares(event.currentTarget.value);
     toggleGridLines(toggleSwitch.checked);
-    // Change a square's color when user clicks on it
-    const squares = document.querySelectorAll(".square");
-    squares.forEach(square => {
-        square.addEventListener("mouseup", () => {
-            drawing = false;
-        });
-        square.addEventListener("mousedown", () => {
-            drawing = true;
-            changeSquareColor(square);
-        });
-        square.addEventListener("mousemove", () => {
-            if (drawing) {
-                changeSquareColor(square);
-            }
-        });
-    });
 });
 
 
@@ -119,21 +116,4 @@ slider.addEventListener("input", event => {
 const backgroundSelector = document.querySelector("#background-selector");
 backgroundSelector.addEventListener("input", event => {
     grid.style.backgroundColor = event.currentTarget.value;
-});
-
-// Change a square's color when user clicks on it
-const squares = document.querySelectorAll(".square");
-squares.forEach(square => {
-    square.addEventListener("mouseup", () => {
-        drawing = false;
-    });
-    square.addEventListener("mousedown", () => {
-        drawing = true;
-        changeSquareColor(square);
-    });
-    square.addEventListener("mousemove", () => {
-        if (drawing) {
-            changeSquareColor(square);
-        }
-    });
 });
