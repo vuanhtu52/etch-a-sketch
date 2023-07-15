@@ -1,3 +1,4 @@
+let mouseDown = false;
 let drawing = false;
 const penColorSelector = document.querySelector("#pen-selector");
 
@@ -14,14 +15,14 @@ function createSquares(gridSize) {
             square.classList.add("square");
             // Change the square's color when user clicks on it
             square.addEventListener("mouseup", () => {
-                drawing = false;
+                mouseDown = false;
             });
             square.addEventListener("mousedown", () => {
-                drawing = true;
+                mouseDown = true;
                 changeSquareColor(square);
             });
-            square.addEventListener("mousemove", () => {
-                if (drawing) {
+            square.addEventListener("mouseenter", () => {
+                if (mouseDown) {
                     changeSquareColor(square);
                 }
             });
