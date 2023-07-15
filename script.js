@@ -119,3 +119,13 @@ const backgroundSelector = document.querySelector("#background-selector");
 backgroundSelector.addEventListener("input", event => {
     grid.style.backgroundColor = event.currentTarget.value;
 });
+
+// Remove the colors when user clicks the clear button
+const clearButton = document.querySelector("#clear");
+clearButton.addEventListener("click", () => {
+    while (grid.lastElementChild) {
+        grid.removeChild(grid.lastElementChild);
+    }
+    createSquares(slider.value);
+    toggleGridLines(toggleSwitch.checked);
+});
