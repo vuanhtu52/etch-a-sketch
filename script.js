@@ -13,12 +13,7 @@ function createSquares(gridSize) {
             let square = document.createElement("div");
             square.style.flex = "1";
             square.classList.add("square");
-            // Change the square's color when user clicks on it
-            square.addEventListener("mouseup", () => {
-                mouseDown = false;
-            });
             square.addEventListener("mousedown", () => {
-                mouseDown = true;
                 changeSquareColor(square);
             });
             square.addEventListener("mouseenter", () => {
@@ -73,6 +68,15 @@ function changeSquareColor(square) {
         square.style.backgroundColor = grid.style.backgroundColor;
     }
 }
+
+// Detect when user clicks the mouse
+body = document.querySelector("body");
+body.addEventListener("mouseup", () => {
+    mouseDown = false;
+});
+body.addEventListener("mousedown", () => {
+    mouseDown = true;
+});
 
 // Display the squares at the beginning
 createSquares(16);
