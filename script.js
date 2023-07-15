@@ -40,9 +40,20 @@ function turnOffButton(button) {
     button.classList.remove("button-active");
 }
 
+function generateRandomColor() {
+    r = Math.floor(Math.random() * (256 - 0)) + 0;
+    g = Math.floor(Math.random() * (256 - 0)) + 0;
+    b = Math.floor(Math.random() * (256 - 0)) + 0;
+    return [r, g, b];
+}
+
 function changeSquareColor(square) {
     if (mode === "pen") {
         square.style.backgroundColor = penColorSelector.value;
+    } else if (mode === "rainbow-pen") {
+        // Generate a random rgb color
+        rgbArray = generateRandomColor();
+        square.style.backgroundColor = `rgb(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]})`;
     }
 }
 
@@ -60,7 +71,6 @@ modeButtons.forEach(button => {
         turnOnButton(button);
         // Set the mode based on button pressed
         mode = button.id;
-        console.log(mode);
     });
 });
 
