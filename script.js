@@ -68,6 +68,8 @@ function changeSquareColor(square) {
         // Generate a random rgb color
         rgbArray = generateRandomColor();
         square.style.backgroundColor = `rgb(${rgbArray[0]}, ${rgbArray[1]}, ${rgbArray[2]})`;
+    } else if (mode === "eraser") {
+        square.style.backgroundColor = grid.style.backgroundColor;
     }
 }
 
