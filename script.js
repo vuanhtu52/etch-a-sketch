@@ -1,3 +1,4 @@
+let drawing = false;
 const penColorSelector = document.querySelector("#pen-selector");
 
 function createSquares(gridSize) {
@@ -7,7 +8,7 @@ function createSquares(gridSize) {
         rowDiv.style.display = "flex";
         rowDiv.style.flex = "1";
         rowDiv.style.offsetWidth = "100%";
-        for (let column = 0; column < gridSize; column ++) {
+        for (let column = 0; column < gridSize; column++) {
             let square = document.createElement("div");
             square.style.flex = "1";
             square.classList.add("square");
@@ -21,11 +22,11 @@ function toggleGridLines(showGridLines) {
     const squares = document.querySelectorAll(".square");
     if (showGridLines) {
         squares.forEach(square => {
-            square.style.border  = "0.5px solid grey";
+            square.style.border = "0.5px solid grey";
         })
     } else {
         squares.forEach(square => {
-            square.style.border  = "0";
+            square.style.border = "0";
         })
     }
 }
@@ -89,7 +90,24 @@ slider.addEventListener("change", event => {
     }
     createSquares(event.currentTarget.value);
     toggleGridLines(toggleSwitch.checked);
+    // Change a square's color when user clicks on it
+    const squares = document.querySelectorAll(".square");
+    squares.forEach(square => {
+        square.addEventListener("mouseup", () => {
+            drawing = false;
+        });
+        square.addEventListener("mousedown", () => {
+            drawing = true;
+            changeSquareColor(square);
+        });
+        square.addEventListener("mousemove", () => {
+            if (drawing) {
+                changeSquareColor(square);
+            }
+        });
+    });
 });
+
 
 // Update the grid size's display while user is dragging the slider
 const sliderDisplay = document.querySelector(".slider-display");
@@ -105,7 +123,6 @@ backgroundSelector.addEventListener("input", event => {
 
 // Change a square's color when user clicks on it
 const squares = document.querySelectorAll(".square");
-let drawing = false;
 squares.forEach(square => {
     square.addEventListener("mouseup", () => {
         drawing = false;
